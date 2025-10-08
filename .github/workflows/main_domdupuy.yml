@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
-          node-version: '22.x'
+          node-version: "22.x"
 
       - name: npm install and build
         run: |
@@ -37,7 +37,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    environment: 
+    environment:
       name: Production
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
@@ -51,16 +51,12 @@ jobs:
         run: unzip release.zip -d .
 
       - name: Azure CLI login
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_24CBE6A460B7416F8AECD59970A3B9A2 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_CDC0A4CB9DFF4CBDA61571F7B87EDB6E }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_87A38AF55D5D4C28B2C2C0A9D13376AE }}
+        run: |
+          az login
 
-      - name: 'Deploy to Azure Web App'
+      - name: "Deploy to Azure Web App"
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'domdupuy'
+          app-name: "domdupuy"
           package: .
-
