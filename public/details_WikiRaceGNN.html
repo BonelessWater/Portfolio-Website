@@ -1,4 +1,4 @@
-<!--Flappy NEAT-->
+<!--WikiRaceGNN - Enhanced Wikipedia Graph Traversal-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,12 +7,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Flappy NEAT</title>
+  <title>WikiRaceGNN - Graph Neural Network</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/favicon.ico" rel="icon">
+  <link href="assets/img/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -28,7 +29,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
+  
 </head>
 
 <body>
@@ -41,7 +42,7 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="assets/img/prof_picture.jpg" alt="" class="img-fluid rounded-circle">
+        <img src="assets/img/domside_cropped.jpg" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">Dominick Dupuy</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="https://www.instagram.com/dominick_dupuy" class="instagram"><i class="bx bxl-instagram"></i></a>
@@ -68,10 +69,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Flappy NEAT</h2>
+          <h2>WikiRaceGNN - Enhanced Wikipedia Graph Traversal</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Flappy NEAT</li>
+            <li>WikiRaceGNN</li>
           </ol>
         </div>
 
@@ -88,24 +89,13 @@
             <div class="portfolio-info">
               <h3>Project information</h3>
               <ul>
-                <li><strong>Category</strong>: Artificial Intelligence</li>
-                <li><strong>Project date</strong>: Janurary, 2022</li>
-                <li><strong>Project URL</strong>: <a href="#">https://github.com/BonelessWater/NEAT-FlappyBird</a></li>
+                <li><strong>Category</strong>: Artificial Intelligence, Graph Neural Networks, Data Structures & Algorithms</li>
+                <li><strong>Technologies</strong>: Python, PyTorch, GraphSAGE, Flask, Poetry</li>
+                <li><strong>Scale</strong>: 7 million Wikipedia pages</li>
+                <li><strong>Performance</strong>: 400% reduction in node traversals vs conventional methods</li>
+                <li><strong>Project date</strong>: 2024</li>
+                <li><strong>Project URL</strong>: <a href="https://github.com/BonelessWater/WikiRaceGNN">github.com/BonelessWater/WikiRaceGNN</a></li>
               </ul>
-            </div>
-            <div class="portfolio-details-slider swiper">
-              <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="assets\img\portfolio\Flappy_NEAT_runs.png" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets\img\portfolio\Flappy_NEAT_birds.png" alt="">
-                </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
             </div>
             
           </div>
@@ -115,15 +105,27 @@
             <div class="portfolio-description">
               <h2>Inspiration</h2>
               <p>
-                This was my first project and my first introduction to self-directed coding. At the time, I found game development very captivating and even now I can still appreciate its caviates, so I took it upon myself to engage with pygame while learning the NEAT library.
+                The Wikipedia game (finding the shortest path between two articles) has always fascinated me as a practical application of graph theory. However, traditional breadth-first search becomes computationally expensive at scale. I wanted to explore whether Graph Neural Networks could learn the structure of Wikipedia's link graph and use that knowledge to navigate more intelligently than conventional algorithms.
               </p>
-              <h2>Explanation</h2>
+              
+              <h2>Technical Innovation</h2>
               <p>
-                NEAT (NeuroEvolution of Augmenting Topologies) is an evolutionary algorithm that creates artificial neural networks and it is used to dictate bird movement. Each iteration of a bird is given a fitness score according to the amount of pipes they cross. The birds with the highest fitness score will have the highest chance of moving into the next generation.
+                This project implements advanced graph traversal algorithms using GraphSAGE (Graph Sample and Aggregate) to navigate Wikipedia's massive link graph of 7 million pages. The system combines state-of-the-art deep learning with sophisticated search strategies including Parallel Beam Search, Bidirectional Guided Search, and Hybrid approaches. The GNN learns embeddings that capture the semantic relationships between Wikipedia articles, enabling the algorithm to make smarter decisions about which links to explore.
               </p>
+
+              <h2>System Architecture</h2>
+              <p>
+                The architecture consists of several key components working in concert. The data pipeline generates graph representations from Wikipedia's edge lists, creating adjacency matrices, node embeddings, and mapping structures. The GraphSAGE model trains on this data to learn meaningful representations of the graph structure. The traversal engine implements multiple search strategies: Beam Search explores multiple promising paths simultaneously, Bidirectional Search works from both start and end nodes, and the Hybrid approach combines both techniques. An adaptive selection mechanism automatically chooses the most appropriate strategy based on estimated node distance.
+              </p>
+
+              <h2>Performance Optimization</h2>
+              <p>
+                Through careful optimization, the GNN-guided search typically explores 30-70% fewer nodes than traditional BFS while still finding optimal or near-optimal paths. The system employs selective caching to manage memory efficiently even with millions of nodes, and the core logic is designed with parallelization in mind for future scaling. The interactive Flask dashboard provides real-time visualization of the traversal process, allowing users to compare GNN performance against BFS, animate search steps, and analyze detailed statistics including path length, nodes explored, and execution time.
+              </p>
+
               <h2>Takeaways</h2>
               <p>
-                This project had the largest influence on my understanding of classes in python. I also learnt about basic pygame structuring and how displays are generated to give the illusion of animation. This project was overall a great learning experience.
+                This project taught me how to apply cutting-edge machine learning techniques to classic computer science problems. Working with graphs at this scale (7 million nodes) presented unique engineering challenges around memory management, data structure design, and computational efficiency. I gained deep experience with Graph Neural Networks, learning how message-passing architectures can capture complex relational patterns. The project reinforced that the most impactful optimizations often come from fundamentally rethinking the problem—here, using learned embeddings to guide search rather than blindly exploring the graph. Building the interactive dashboard also highlighted the importance of visualization tools for understanding and debugging complex algorithms.
               </p>
             </div>
           </div>
