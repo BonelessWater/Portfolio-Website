@@ -51,8 +51,11 @@ jobs:
         run: unzip release.zip -d .
 
       - name: Azure CLI login
-        run: |
-          az login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_24CBE6A460B7416F8AECD59970A3B9A2 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_CDC0A4CB9DFF4CBDA61571F7B87EDB6E }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_87A38AF55D5D4C28B2C2C0A9D13376AE }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -60,3 +63,4 @@ jobs:
         with:
           app-name: 'domdupuy'
           package: .
+
