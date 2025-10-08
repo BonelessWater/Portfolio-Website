@@ -164,7 +164,8 @@
    * Porfolio isotope and filter
    */
   window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
+    // Only initialize Isotope on the regular portfolio section, not hackathon winners
+    let portfolioContainer = document.querySelector('#portfolio .portfolio-container');
     if (portfolioContainer) {
       let portfolioIsotope = new Isotope(portfolioContainer, {
         itemSelector: '.portfolio-item'
